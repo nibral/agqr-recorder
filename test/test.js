@@ -15,9 +15,9 @@ agqr.getStreamUrl().then((streamUrl) => {
 const recorder = require('../lib/recorder');
 agqr.getStreamUrl().then((streamUrl) => {
     return recorder.record(streamUrl, 10);
-}).then((flvFilePath) => {
+}).then((encodedFiles) => {
     console.log('recorder.record()');
-    console.log(flvFilePath);
+    console.log(encodedFiles);
 });
 
 /*
