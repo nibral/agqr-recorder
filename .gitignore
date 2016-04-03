@@ -1,0 +1,10 @@
+# backup files
+*~
+# npm
+node_modules
+
+# typings
+typings
+
+# VSCode
+.vscode
