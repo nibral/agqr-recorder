@@ -1,3 +1,7 @@
 'use strict';
 
-console.log('nothing to test');
+/*
+    scheduler
+*/
+const scheduler = require('../lib/scheduler');
+scheduler.start();
