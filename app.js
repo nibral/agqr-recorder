@@ -16,3 +16,6 @@ const listenPort = process.env.PORT || 3000;
 app.listen(listenPort, () => {
     console.log('start listening at port %d', listenPort);
 });
+
+const scheduler = require('./lib/scheduler');
+scheduler.start('45 29,59 * * * *');
