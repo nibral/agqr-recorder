@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 /*
     ./lib/agqr.js
 */
@@ -31,10 +33,17 @@ const s3 = require('../lib/s3');
 s3.putObject('./test/test.js').then((response) => {
     console.log('s3.putObject()');
     console.log(response);
+
     return s3.listObjects();
 }).then((response) => {
     console.log('s3.listObjects()');
     console.log(response);
+
+    return s3.getObjectAsStream('test.js', 'bytes=100-200');
+}).then((result) => {
+    console.log('s3.getObjectAsStream()');
+    console.log(result);
+    result.stream.pipe(fs.createWriteStream('test.txt'));
 }).catch((error) => {
     console.log(error);
 });
