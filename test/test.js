@@ -31,6 +31,10 @@ const s3 = require('../lib/s3');
 s3.putObject('./test/test.js').then((response) => {
     console.log('s3.putObject()');
     console.log(response);
+    return s3.listObjects();
+}).then((response) => {
+    console.log('s3.listObjects()');
+    console.log(response);
 }).catch((error) => {
     console.log(error);
 });
