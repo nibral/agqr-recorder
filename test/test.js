@@ -5,7 +5,8 @@ const fs = require('fs');
 const target = {
     agqr: false,
     recorder: false,
-    s3: false
+    s3: false,
+    scheduler: true
 };
 
 /*
@@ -59,4 +60,12 @@ if (target.s3) {
     }).catch((error) => {
         console.log(error);
     });
+}
+
+/*
+    ./lib/scheduler.js
+*/
+if(target.scheduler) {
+    const scheduler = require('../lib/scheduler');
+    scheduler.start('45 */2 * * * *');
 }
