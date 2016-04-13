@@ -1,0 +1,19 @@
+body {
+    background: #ECEFF1;
+    padding-left: 8px;
+}
+
+header {
+    color: #607D8B;
+}
+
+.my-card.mdl-card {
+    width: 320px;
+    margin-bottom: 8px;
+}
+
+.my-card > .mdl-card__actions {
+    display: flex;
+    justify-content: space-around;
+}
+

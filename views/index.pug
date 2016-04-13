@@ -1,16 +1,19 @@
 extends ./_layout.pug
 
 block content
-    h2 agqr-recorder
-    each item in objects
-        div
-            hr
-            img(src=item.thumbnail)
-            br
-            | #{item.date}
-            br
-            | #{item.title}
-            br
-            a(href=item.video) 動画あり
-            br
-            a(href=item.audio) 音声のみ
+    header
+        h3 agqr-recorder
+    div(class="content")
+        each item in objects
+            div(class="my-card mdl-card mdl-shadow--2dp")
+                div(class="mdl-card__media")
+                    img(src=item.thumbnail)
+                div(class="mdl-card__supporting-text")
+                    | #{item.date}
+                    br
+                    | #{item.title}
+                div(class="mdl-card__actions mdl-card--border")
+                    a(class="mdl-button mdl-js-button mdl-button--accent", href=item.video)
+                        |play
+                    a(class="mdl-button mdl-js-button mdl-button--primary", href=item.audio)
+                        |audio only
