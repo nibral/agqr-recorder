@@ -6,10 +6,11 @@
 const express = require('express');
 const app = express();
 
+app.set('view engine', 'pug');
+
 // routing
-app.get('/', (request, response) => {
-    response.send('agqr-recorder');
-});
+const index = require('./routes');
+app.use('/', index);
 
 // start http server
 const listenPort = process.env.PORT || 3000;

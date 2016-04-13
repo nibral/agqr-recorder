@@ -1,0 +1,14 @@
+extends ./_layout.pug
+
+block content
+    h2 agqr-recorder
+    each item in objects
+        div
+            hr
+            img(src=item.thumbnail)
+            br
+            | #{item.title}
+            br
+            a(href=item.video) 動画あり
+            br
+            a(href=item.audio) 音声のみ
