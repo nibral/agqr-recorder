@@ -5,6 +5,15 @@ const router = express.Router();    // eslint-disable-line
 
 const s3 = require('../lib/s3');
 
+const convertDateFormat = (todays8) => {
+    const year = todays8.slice(0, 4);
+    const month = todays8.slice(4, 6);
+    const date = todays8.slice(6, 8);
+
+    return year + '/' + month + '/' + date;
+};
+
+
 /*
     top page
 */
@@ -16,7 +25,8 @@ router.get('/', (request, response) => {
             if (element.Key.match(/^.*\.mp4/)) {
                 const key = element.Key.slice(0, -4);
                 objects.push({
-                    title: key.replace(/_/g, ' '),
+                    title: key.replace(/_/g, ' ').slice(10),
+                    date: convertDateFormat(key.slice(1, 9)),
                     video: './' + key + '.mp4',
                     audio: './' + key + '.m4a',
                     thumbnail: './' + key + '.jpg'
