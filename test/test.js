@@ -6,7 +6,7 @@ const target = {
     agqr: false,
     recorder: false,
     s3: false,
-    scheduler: true
+    scheduler: false
 };
 
 /*
@@ -52,11 +52,16 @@ if (target.s3) {
         console.log('s3.listObjects()');
         console.log(response);
 
-        return s3.getObjectAsStream('test.js', 'bytes=100-200');
-    }).then((result) => {
         console.log('s3.getObjectAsStream()');
-        console.log(result);
-        result.stream.pipe(fs.createWriteStream('test.txt'));
+        const s3Request = s3.getObjectRequest('test.js', 'bytes=100-200');
+        s3Request.on('error', (error) => {
+            response.send(error);
+        });
+        s3Request.on('httpHeaders', (statusCode, headers) => {
+            console.log(statusCode);
+            console.log(headers);
+        });
+        s3Request.createReadStream().pipe(fs.createWriteStream('test.txt'));
     }).catch((error) => {
         console.log(error);
     });
