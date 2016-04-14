@@ -24,7 +24,7 @@ router.get('/', (request, response) => {
         result.Contents.forEach((element) => {
             if (element.Key.match(/^.*\.mp4/)) {
                 const key = element.Key.slice(0, -4);
-                objects.push({
+                objects.unshift({
                     title: key.replace(/_/g, ' ').slice(10),
                     date: convertDateFormat(key.slice(1, 9)),
                     video: './' + key + '.mp4',
