@@ -1,15 +1,21 @@
 body {
     background: #ECEFF1;
-    padding-left: 8px;
 }
 
-header {
+.my-title {
     color: #607D8B;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.my-title > h3 {
+    margin: 0;
 }
 
 .my-card.mdl-card {
-    width: 320px;
-    margin-bottom: 8px;
+    margin: auto;
+    max-width: 320px;
+    width: initial;
 }
 
 .my-card > .mdl-card__actions {
@@ -17,3 +23,11 @@ header {
     justify-content: space-around;
 }
 
+.mdl-card__media > img {
+    max-width: 100%;
+}
+
+.my-player {
+    margin: 0 auto;
+    width: 320px;
+}

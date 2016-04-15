@@ -4,7 +4,8 @@ block title
     title=title
 
 block content
-    if type === 'video'
-        video(src=stream, type="video/mp4", onclick="this.play()", controls)
-    else
-        audio(src=stream, type="audio/mp4", onclick="this.play()", controls)
+    div(class="my-player")
+        if type === 'video'
+            video(src=stream, type="video/mp4", onclick="this.play()", controls)
+        else
+            audio(src=stream, type="audio/mp4", onclick="this.play()", controls)
