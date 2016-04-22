@@ -1,21 +1,34 @@
 extends ./_layout.pug
 
 block content
-    header(class="my-title")
-        h3 agqr-recorder
-    main
-        div(class="mdl-grid")
-            each item in objects
-                div(class="mdl-cell mdl-cell--4-col")
-                    div(class="my-card mdl-card mdl-shadow--2dp")
-                        div(class="mdl-card__media")
-                            img(src=item.thumbnail)
-                        div(class="mdl-card__supporting-text")
-                            | #{item.date}
-                            br
-                            | #{item.title}
-                        div(class="mdl-card__actions mdl-card--border")
-                            a(class="mdl-button mdl-js-button mdl-button--accent", href=item.video)
-                                |play
-                            a(class="mdl-button mdl-js-button mdl-button--primary", href=item.audio)
-                                |audio only
+    div(class="mdl-layout mdl-js-layout")
+        header(class="mdl-layout__header mdl-layout--fixed-drawer")
+            div(class="mdl-layout__header-row")
+                span(class="mdl-layout-title")
+                    |超!A&G
+                div(class="mdl-layout-spacer")
+                nav(class="mdl-navigation")
+                    a(class="mdl-navigation__link" href="./#")
+                        |config
+        div(class="mdl-layout__drawer")
+                span(class="mdl-layout-title")
+                    |超!A&G
+                nav(class="mdl-navigation")
+                    a(class="mdl-navigation__link" href="./#")
+                        |config
+        main(class="mdl-layout__content")
+            div(class="mdl-grid")
+                each item in objects
+                    div(class="mdl-cell mdl-cell--4-col")
+                        div(class="my-card mdl-card mdl-shadow--2dp")
+                            div(class="mdl-card__media")
+                                img(src=item.thumbnail)
+                            div(class="mdl-card__supporting-text")
+                                | #{item.date}
+                                br
+                                | #{item.title}
+                            div(class="mdl-card__actions mdl-card--border")
+                                a(class="mdl-button mdl-js-button mdl-button--accent", href=item.video)
+                                    |play
+                                a(class="mdl-button mdl-js-button mdl-button--primary", href=item.audio)
+                                    |audio only

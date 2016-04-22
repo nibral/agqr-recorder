@@ -2,16 +2,6 @@ body {
     background: #ECEFF1;
 }
 
-.my-title {
-    color: #607D8B;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.my-title > h3 {
-    margin: 0;
-}
-
 .my-card.mdl-card {
     margin: auto;
     max-width: 320px;
@@ -25,6 +15,11 @@ body {
 
 .mdl-card__media > img {
     max-width: 100%;
+}
+
+.is-small-screen > .mdl-layout__drawer-button {
+    background: rgba(236,239,241,0.667);
+    margin: 0;
 }
 
 .my-player {
