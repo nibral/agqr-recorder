@@ -10,4 +10,24 @@ html(lang="ja")
         block title
             title agqr-recorder
     body
-        block content
+        div(class="mdl-layout mdl-js-layout")
+            header(class="mdl-layout__header mdl-layout--fixed-drawer")
+                div(class="mdl-layout__header-row")
+                    span(class="mdl-layout-title")
+                        |超!A&G
+                    div(class="mdl-layout-spacer")
+                    nav(class="mdl-navigation")
+                        a(class="mdl-navigation__link" href="./")
+                            |TOP
+                        a(class="mdl-navigation__link" href="./config")
+                            |CONFIG
+            div(class="mdl-layout__drawer")
+                    span(class="mdl-layout-title")
+                        |超!A&G
+                    nav(class="mdl-navigation")
+                        a(class="mdl-navigation__link" href="./")
+                            |TOP
+                        a(class="mdl-navigation__link" href="./config")
+                            |CONFIG
+            main(class="mdl-layout__content")
+                block content

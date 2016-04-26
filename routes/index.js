@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();    // eslint-disable-line
 
+const fs = require('fs');
 const s3 = require('../lib/s3');
 
 const convertDateFormat = (todays8) => {
@@ -12,7 +13,6 @@ const convertDateFormat = (todays8) => {
 
     return year + '/' + month + '/' + date;
 };
-
 
 /*
     top page
@@ -85,6 +85,20 @@ router.get(/\/(.*\.jpg)$/, (request, response) => {
         response.set(headers);
     });
     s3Request.createReadStream().pipe(response);
+});
+
+/*
+    config
+*/
+router.get('/config', (request, response) => {
+    const data = fs.readFileSync('./config.json', 'utf8');
+
+    // JSON.parse does unstable behavior when data has empty string
+    const config = JSON.parse(data || 'null');
+
+    response.render('config', {
+        programs: config.programs
+    });
 });
 
 module.exports = router;
