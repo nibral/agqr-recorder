@@ -5,6 +5,9 @@ block title
 
 block content
     div(class="my-player")
+        |#{date}
+        br
+        |#{title}
         if type === 'video'
             video(src=stream, type="video/mp4", onclick="this.play()", controls)
         else

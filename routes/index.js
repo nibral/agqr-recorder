@@ -65,7 +65,8 @@ router.get(/\/(.*\.(mp4|m4a))$/, (request, response) => {
     const key = request.params[0];
     const type = (request.params[1] === 'mp4') ? 'video' : 'audio';
     response.render('player', {
-        title: key.replace(/_/g, ' '),
+        title: key.replace(/_/g, ' ').slice(14, -4),
+        date: convertDateFormat(key.slice(1, 9)),
         stream: './stream/' + key,
         type: type
     });
