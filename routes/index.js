@@ -24,6 +24,7 @@ router.get('/', (request, response) => {
         result.Contents.forEach((element) => {
             if (element.Key.match(/^.*\.mp4/)) {
                 const key = element.Key.slice(0, -4);
+                // add element to the beginning of an array
                 objects.unshift({
                     title: key.replace(/_/g, ' ').slice(14),
                     date: convertDateFormat(key.slice(1, 9)),
