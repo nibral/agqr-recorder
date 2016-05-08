@@ -9,21 +9,21 @@ block content
         thead
             tr
                 th(class="mdl-data-table__cell--non-numeric")
-                    |番組名
-                th(class="mdl-data-table__cell--non-numeric")
                     |曜日
                 th(class="mdl-data-table__cell--non-numeric")
                     |時刻
+                th(class="mdl-data-table__cell--non-numeric")
+                    |番組名
                 th(class="mdl-data-table__cell--non-numeric")
                     |長さ
         tbody
             each item in programs
                 tr
                     td(class="mdl-data-table__cell--non-numeric")
-                        | #{item.title}
-                    td(class="mdl-data-table__cell--non-numeric")
                         | #{dayName[item.dayNo]}
                     td(class="mdl-data-table__cell--non-numeric")
                         | #{item.time}
+                    td(class="mdl-data-table__cell--non-numeric")
+                        | #{item.title}
                     td(class="mdl-data-table__cell--non-numeric")
                         | #{item.length}                        
