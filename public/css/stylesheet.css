@@ -13,6 +13,11 @@ body {
     justify-content: space-around;
 }
 
+.my-card > .mdl-card__actions > .mdl-button {
+    min-width: initial;
+    flex-grow: 1;
+}
+
 .mdl-card__media > img {
     max-width: 100%;
 }

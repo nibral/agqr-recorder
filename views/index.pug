@@ -1,6 +1,12 @@
 extends ./_layout.pug
 
 block content
+    script.
+        function confirmDelete(key) {
+            if (window.confirm('Are you sure?\n(' + key + ')')) {
+                location.href = './delete?key=' + key;
+            }
+        }
     div(class="mdl-grid")
         each item in objects
             div(class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone")
@@ -12,7 +18,9 @@ block content
                         br
                         | #{item.title}
                     div(class="mdl-card__actions mdl-card--border")
-                        a(class="mdl-button mdl-js-button mdl-button--accent", href=item.video)
-                            |play
+                        a(class="mdl-button mdl-js-button mdl-button--primary", href=item.video)
+                            <i class="material-icons">movie</i>
                         a(class="mdl-button mdl-js-button mdl-button--primary", href=item.audio)
-                            |audio only
+                            <i class="material-icons">headset</i>
+                        button(class="mdl-button mdl-js-button mdl-button--accent", onClick="confirmDelete('" + item.key + "')")
+                            <i class="material-icons">delete</i>

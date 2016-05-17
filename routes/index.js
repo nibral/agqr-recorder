@@ -28,6 +28,7 @@ router.get('/', (request, response) => {
                 objects.unshift({
                     title: key.replace(/_/g, ' ').slice(14),
                     date: convertDateFormat(key.slice(1, 9)),
+                    key: key,
                     video: './' + key + '.mp4',
                     audio: './' + key + '.m4a',
                     thumbnail: './' + key + '.jpg'
@@ -101,6 +102,20 @@ router.get('/config', (request, response) => {
     response.render('config', {
         programs: config.programs
     });
+});
+
+/*
+    delete
+*/
+router.get('/delete', (request, response) => {
+    const key = request.query.key;
+
+    // delete video,audio and thumbnail
+    s3.deleteObject(key + '.mp4');
+    s3.deleteObject(key + '.m4a');
+    s3.deleteObject(key + '.jpg');
+
+    response.redirect('/');
 });
 
 module.exports = router;
