@@ -45,8 +45,8 @@ if (target.recorder) {
 if (target.s3) {
     const s3 = require('../lib/s3');
     co(function* () {
-        console.log('s3.putObject()');
-        console.log(yield s3.putObject('./test/test.js'));
+        console.log('s3.upload()');
+        console.log(yield s3.upload('./test/test.js'));
 
         console.log('s3.listObjects()');
         console.log(yield s3.listObjects());
