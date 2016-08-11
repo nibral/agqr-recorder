@@ -9,14 +9,6 @@ const app = express();
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
-// favicon
-const favicon = require('serve-favicon');
-app.use(favicon(__dirname + '/public/favicon.ico'));
-
-// authentication
-const basicAuth = require('basic-auth-connect');
-app.use(basicAuth('udon', 'kamatama'));
-
 // routing
 const index = require('./routes');
 app.use('/', index);
