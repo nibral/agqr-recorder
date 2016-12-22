@@ -20,4 +20,4 @@ app.listen(listenPort, () => {
 });
 
 const scheduler = require('./lib/scheduler');
-scheduler.start('45 29,59 * * * *');
+scheduler.start('45 * * * * *');
