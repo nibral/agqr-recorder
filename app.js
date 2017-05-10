@@ -1,13 +1,10 @@
 'use strict';
 
 /*
- Express
+    Express
  */
 const express = require('express');
 const app = express();
-
-app.set('view engine', 'pug');
-app.use(express.static('public'));
 
 // routing
 const index = require('./routes');

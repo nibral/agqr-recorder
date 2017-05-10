@@ -1,9 +1,8 @@
 {
-    "env": {
-        "es6": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
     "rules": {
         "indent": [
             "error",
@@ -13,13 +12,7 @@
             "error",
             "unix"
         ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "strict": "off",
+        "import/newline-after-import": "off"
     }
 }
