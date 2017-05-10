@@ -10,12 +10,11 @@
   "author": "nibral",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.6.6",
+    "aws-sdk": "^2.49.0",
     "co": "^4.6.0",
-    "cron": "^1.1.0",
+    "cron": "^1.2.1",
     "eslint": "^3.19.0",
-    "express": "^4.14.0",
-    "pug": "^2.0.0-beta6",
+    "express": "^4.15.2",
     "request-promise": "^2.0.1",
     "xml2js": "^0.4.17"
   },
