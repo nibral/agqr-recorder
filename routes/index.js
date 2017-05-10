@@ -44,7 +44,8 @@ router.get('/programs', (request, response) => {
         });
         response.json(programs);
     }).catch((error) => {
-        response.send(error);
+        console.error(error);
+        response.status(500).send('failed to get programs');
     });
 });
 
@@ -65,7 +66,8 @@ router.get('/streams/:key', (request, response) => {
         });
         s3Request.createReadStream().pipe(response);
     } catch (error) {
-        response.error(error);
+        console.error(error);
+        response.status(500).send('failed to get stream');
     }
 });
 
@@ -85,7 +87,8 @@ router.get('/thumbnails/:key', (request, response) => {
         });
         s3Request.createReadStream().pipe(response);
     } catch (error) {
-        response.error(error);
+        console.error(error);
+        response.status(500).send('failed to get thumbnail');
     }
 });
 
@@ -99,11 +102,10 @@ router.get('/config', (request, response) => {
         // JSON.parse does unstable behavior when data has empty string
         const config = JSON.parse(data || 'null');
 
-        response.render('config', {
-            programs: config.programs,
-        });
+        response.json(config.programs);
     } catch (error) {
-        response.error(error);
+        console.error(error);
+        response.status(500).send('failed to get config');
     }
 });
 
@@ -119,7 +121,8 @@ router.delete('/programs/:key', (request, response) => {
 
         response.end();
     } catch (error) {
-        response.error(error);
+        console.error(error);
+        response.status(500).send('failed to delete');
     }
 });
 
