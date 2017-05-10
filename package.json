@@ -4,9 +4,6 @@
   "private": true,
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "node test/test.js"
-  },
   "author": "nibral",
   "license": "MIT",
   "dependencies": {
