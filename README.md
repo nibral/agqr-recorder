@@ -31,6 +31,29 @@ server {
 }
 ```
 
+Run as service with systemd
+----
+
+Replace `project-dir`, `username` and `group`.
+
+```
+[Unit]
+Description=AGQR Recorder API service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/node /<project-dir>/app.js
+WorkingDirectory=<project-dir>
+KillMode=process
+Restart=always
+User=<username>
+Group=<group>
+
+[Install]
+WantedBy=multi-user.target
+```
+
 License
 ----
 
