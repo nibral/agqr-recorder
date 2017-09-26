@@ -4,18 +4,20 @@
   "private": true,
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "node test/test.js"
-  },
   "author": "nibral",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.6.6",
+    "aws-sdk": "^2.49.0",
     "co": "^4.6.0",
-    "cron": "^1.1.0",
-    "express": "^4.14.0",
-    "pug": "^2.0.0-beta6",
+    "cron": "^1.2.1",
+    "eslint": "^3.19.0",
+    "express": "^4.15.2",
     "request-promise": "^2.0.1",
     "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
